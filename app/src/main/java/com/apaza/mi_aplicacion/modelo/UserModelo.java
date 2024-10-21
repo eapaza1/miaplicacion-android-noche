@@ -18,7 +18,7 @@ public class UserModelo {
         conexion=new Conexion(contexto);
     }
 
-    private long Create(EUser data){
+    public long Create(EUser data){
         SQLiteDatabase db=conexion.getWritableDatabase();
         ContentValues valores=new ContentValues();
         valores.put("nombre",data.getNombre());
