@@ -139,6 +139,17 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_au_password" />
 
     <Button
+        android:id="@+id/btn_au_actualizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#308E32"
+        android:text="ACTUALIZAR"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_au_password" />
+
+    <Button
         android:id="@+id/btn_au_cancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -18,7 +18,7 @@ public class Conexion extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
             String tabla_usuario="CREATE TABLE IF NOT EXISTS users(" +
-                    "id INTEGER PRIMARY KEY," +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "nombre TEXT," +
                     "apellido TEXT," +
                     "dni TEXT," +
