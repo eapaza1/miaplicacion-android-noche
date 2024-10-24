@@ -28,17 +28,28 @@
         tools:layout_editor_absoluteX="0dp">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_lista_usuarios"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_add_usuario"
+        android:id="@+id/btn_lu_add"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:text="+"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btn_lu_return"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="80dp"
+        android:text="-"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

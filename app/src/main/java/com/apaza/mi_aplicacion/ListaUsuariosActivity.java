@@ -1,14 +1,28 @@
 package com.apaza.mi_aplicacion;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.apaza.mi_aplicacion.adapters.UserListAdapter;
+import com.apaza.mi_aplicacion.entidades.EUser;
+import com.apaza.mi_aplicacion.modelo.UserModelo;
+
+import java.util.List;
 
 public class ListaUsuariosActivity extends AppCompatActivity {
+
+    Button btn_add;
+    RecyclerView rv_users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +34,31 @@ public class ListaUsuariosActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        btn_add=findViewById(R.id.btn_lu_add);
+        rv_users=findViewById(R.id.rv_lista_usuarios);
+
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ListaUsuariosActivity.this,AddUserActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        initData();
+
+
     }
+
+    private void initData() {
+        UserModelo model= new UserModelo(this);
+        List<EUser> items=model.ReadAll();
+        rv_users.setLayoutManager(new LinearLayoutManager(this));
+        UserListAdapter adapter=new UserListAdapter(items);
+        rv_users.setAdapter(adapter);
+
+    }
+
+
 }
