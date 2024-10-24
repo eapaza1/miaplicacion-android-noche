@@ -13,25 +13,28 @@ import com.apaza.mi_aplicacion.entidades.EUser;
 import java.util.List;
 
 public class UserListAdapter extends RecyclerView.Adapter<UserListHolder> {
-    List<EUser> items;
+
+    private List<EUser> items;
 
     public UserListAdapter(List<EUser> items) {
         this.items = items;
     }
 
+
+    @NonNull
     @Override
-    public UserListHolder onCreateViewHolder(@NonNull ViewGroup parent, int
-            viewType) {
-        View view =
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_view
-                        , parent, false);
-        return new UserListHolder(view);
+    public UserListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View vista= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_view,parent,false);
+
+        return new UserListHolder(vista);
     }
 
     @Override
-    public void onBindViewHolder(UserListHolder holder, int position) {
-        EUser data = items.get(position);
-        holder.mostrar(data);
+    public void onBindViewHolder(@NonNull UserListHolder holder, int position) {
+            EUser data=items.get(position);
+
+            holder.mostar(data);
     }
 
     @Override

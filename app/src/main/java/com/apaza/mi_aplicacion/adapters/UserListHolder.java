@@ -5,54 +5,66 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.apaza.mi_aplicacion.R;
 import com.apaza.mi_aplicacion.entidades.EUser;
 
 public class UserListHolder extends RecyclerView.ViewHolder {
-    TextView tv_nombre,tv_user;
-    ImageView btn_editar,btn_eliminar;
-    public UserListHolder( View view) {
+
+    private TextView tv_nombres,tv_usuario;
+    private ImageView btn_editar,btn_eliminar;
+
+    public UserListHolder(View view) {
         super(view);
-        tv_nombre=view.findViewById(R.id.tv_rvi_nombres);
-        tv_user=view.findViewById(R.id.tv_rvi_user);
+        tv_nombres= view.findViewById(R.id.tv_rvi_nombres);
+        tv_usuario= view.findViewById(R.id.tv_rvi_user);
+
         btn_editar=view.findViewById(R.id.btn_rviu_editar);
         btn_eliminar=view.findViewById(R.id.btn_rviu_eliminar);
-    }
-    public void mostrar(EUser data){
-        tv_user.setText(data.getUsuario());
-        tv_nombre.setText(data.getNombre()+" "+data.getApellido());
+
+        //evetnos de botones
         btn_editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editar(data);
+                editar();
             }
         });
+
         btn_eliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                eliminar(data);
+                eliminar();
             }
         });
+
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                verdetalle(data);
+                verPerfil();
             }
         });
     }
-    private void verdetalle(EUser data) {
-        showMessage("Enviando mensaje desde el item con apelldios: "+data.getApellido());
-    }
-    private void eliminar(EUser data) {
-        showMessage("enviado desde elimianr con nombre: "+data.getNombre());
-    }
-    private void editar(EUser data) {
-        showMessage("enviando mensaje desde editar con: "+data.getNombre());
-    }
-    private void showMessage(String message){
 
-        Toast.makeText(itemView.getContext(),message,Toast.LENGTH_SHORT).show();
+    private void verPerfil() {
+        Toast.makeText(itemView.getContext(),"presionaste el elemento",Toast.LENGTH_LONG).show();
+
     }
+
+    private void editar() {
+        Toast.makeText(itemView.getContext(),"presionaste boton editar",Toast.LENGTH_LONG).show();
+    }
+
+    private void eliminar(){
+
+        Toast.makeText(itemView.getContext(),"presionaste boton eliminar",Toast.LENGTH_LONG).show();
+    }
+
+    public void  mostar(EUser data){
+        tv_nombres.setText(data.getNombre()+" "+data.getApellido());
+        tv_usuario.setText(data.getUsuario());
+    }
+
+
 }

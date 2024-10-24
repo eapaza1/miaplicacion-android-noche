@@ -37,7 +37,6 @@ public class ListaUsuariosActivity extends AppCompatActivity {
 
         btn_add=findViewById(R.id.btn_lu_add);
         rv_users=findViewById(R.id.rv_lista_usuarios);
-        initData();
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,15 +46,19 @@ public class ListaUsuariosActivity extends AppCompatActivity {
             }
         });
 
+        initData();
+
 
     }
 
-    private void initData(){
-        UserModelo modelo=new UserModelo(this);
-        List<EUser> lista=modelo.ReadAll();
+    private void initData() {
+        UserModelo model= new UserModelo(this);
+        List<EUser> items=model.ReadAll();
         rv_users.setLayoutManager(new LinearLayoutManager(this));
-        UserListAdapter adapter=new UserListAdapter(lista);
+        UserListAdapter adapter=new UserListAdapter(items);
         rv_users.setAdapter(adapter);
+
     }
+
 
 }
