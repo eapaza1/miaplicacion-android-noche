@@ -63,4 +63,28 @@ public class UserModelo {
 
         return lista;
     }
+
+    public int Update(EUser data) {
+        SQLiteDatabase db = conexion.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("nombre", data.getNombre());
+        values.put("apellido", data.getApellido());
+        values.put("dni", data.getDni());
+        values.put("telefono", data.getTelefono());
+        values.put("email", data.getEmail());
+        values.put("direccion", data.getDireccion());
+        values.put("usuario", data.getUsuario());
+        values.put("password", data.getPassword());
+
+        int res = db.update(TABLE, values, "id=?", new String[]{"" + data.getId()});
+        db.close();
+        return res;
+    }
+
+    private int Delete(int id) {
+        SQLiteDatabase db = conexion.getWritableDatabase();
+        int res = db.delete(TABLE, "id=?", new String[]{"" + id});
+        db.close();
+        return res;
+    }
 }

@@ -1,6 +1,8 @@
 package com.apaza.mi_aplicacion.entidades;
 
-public class EUser {
+import java.io.Serializable;
+
+public class EUser implements Serializable {
     private int id;
     private String nombre,apellido,dni,telefono,email,direccion,usuario,password;
 
