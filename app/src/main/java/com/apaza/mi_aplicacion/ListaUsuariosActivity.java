@@ -55,7 +55,7 @@ public class ListaUsuariosActivity extends AppCompatActivity {
         UserModelo model= new UserModelo(this);
         List<EUser> items=model.ReadAll();
         rv_users.setLayoutManager(new LinearLayoutManager(this));
-        UserListAdapter adapter=new UserListAdapter(items);
+        UserListAdapter adapter=new UserListAdapter(items,this);
         rv_users.setAdapter(adapter);
 
     }
