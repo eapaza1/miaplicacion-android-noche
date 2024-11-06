@@ -24,6 +24,8 @@ public class ListaUsuariosActivity extends AppCompatActivity {
     Button btn_add;
     RecyclerView rv_users;
 
+    private List<EUser> lista;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +61,10 @@ public class ListaUsuariosActivity extends AppCompatActivity {
         rv_users.setAdapter(adapter);
 
     }
+
+    
+
+
 
 
 }
