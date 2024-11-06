@@ -24,6 +24,8 @@ public class ListaUsuariosActivity extends AppCompatActivity {
     Button btn_add;
     RecyclerView rv_users;
 
+    private List<EUser> lista;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,12 +55,16 @@ public class ListaUsuariosActivity extends AppCompatActivity {
 
     private void initData() {
         UserModelo model= new UserModelo(this);
-        List<EUser> items=model.ReadAll();
+         lista=model.ReadAll();
         rv_users.setLayoutManager(new LinearLayoutManager(this));
-        UserListAdapter adapter=new UserListAdapter(items);
+        UserListAdapter adapter=new UserListAdapter(lista,this);
         rv_users.setAdapter(adapter);
 
     }
+
+    
+
+
 
 
 }
