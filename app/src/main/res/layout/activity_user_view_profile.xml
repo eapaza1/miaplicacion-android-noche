@@ -1,0 +1,255 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp">
+
+    <ImageButton
+        android:id="@+id/btn_vu_return"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="retornar Usuario"
+        android:scaleType="fitCenter"
+        android:src="@drawable/borrar"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#0D8787" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="15dp"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="15dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="100dp">
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="4dp"
+                app:srcCompat="@drawable/hombre"
+
+
+                />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                android:orientation="vertical"
+                android:padding="10dp">
+                <!-- Nombre Completo -->
+                <TextView
+                    android:id="@+id/tv_vu_full_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="16dp"
+                    android:text="Nombre Completo"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <!-- DNI -->
+                <TextView
+                    android:id="@+id/tv_vu_dni"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:text="DNI: 12345678"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- Email con botón para enviar correo -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="5dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="#fff"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp"
+
+
+                >
+
+                <TextView
+                    android:id="@+id/tv_vu_email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Correo: email@example.com"
+                    android:textSize="16sp" />
+
+                <ImageButton
+                    android:id="@+id/btn_vu_send_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:background="?attr/selectableItemBackgroundBorderless"
+
+
+                    android:contentDescription="Enviar Email"
+                    android:src="@android:drawable/ic_dialog_email"
+                    app:tint="@android:color/holo_blue_dark" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <!-- Teléfono con botón para llamar -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_vu_telfono"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Teléfono: +123456789"
+                    android:textSize="16sp" />
+
+                <ImageButton
+                    android:id="@+id/btn_vu_call_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Llamar"
+                    android:src="@android:drawable/ic_menu_call"
+                    app:tint="@android:color/holo_green_dark" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <!-- Dirección -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="5dp">
+
+
+            <TextView
+                android:id="@+id/tv_vu_direccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:padding="12dp"
+                android:text="Dirección: Calle 123, Ciudad"
+                android:textSize="16sp" />
+        </androidx.cardview.widget.CardView>
+        <!-- Usuario -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+
+
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_vu_usuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:text="Usuario: myusername"
+                    android:textSize="16sp" />
+
+                <!-- Contraseña -->
+                <TextView
+                    android:id="@+id/tv_vu_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:text="Contraseña: ********"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageButton
+                    android:id="@+id/ibtn_vu_editar"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Editar usuario"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/editar" />
+
+                <ImageButton
+                    android:id="@+id/ibtn_vu_eliminar"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Eliminar Usuario"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/borrar" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

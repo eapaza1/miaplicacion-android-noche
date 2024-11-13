@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.apaza.mi_aplicacion.AddUserActivity;
 import com.apaza.mi_aplicacion.R;
 import com.apaza.mi_aplicacion.entidades.EUser;
+import com.apaza.mi_aplicacion.modelo.UserModelo;
 
 import java.util.List;
 
@@ -52,8 +53,22 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
     }
 
     public void eliminarUser(EUser data, int position) {
+        UserModelo modelo = new UserModelo(context);
 
+        //resultado de eliminar en base de datos
+        int res=modelo.Delete(data.getId());
+        //valido el resultado
+        if (res>0){
+            items.remove(position);
+            notifyItemRemoved(position);
+        }
     }
+
+    public void setItemsChange(List<EUser> filtrado) {
+        items=filtrado;
+        notifyDataSetChanged();
+    }
+
 
     //clase holder
     public class UserListHolder extends RecyclerView.ViewHolder {
@@ -113,7 +128,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
             alerta.setTitle("ALERTA");
             alerta.setMessage("¿Estas seguro de eliminar el usuario: " + usuario.getNombre() + " ?");
             alerta.setPositiveButton("Eliminar", (dialog, i) -> {
-
+                eliminarUser(usuario,indice);
             });
             alerta.setNegativeButton("Cancelar", (dialog, i) -> {
                 dialog.dismiss();

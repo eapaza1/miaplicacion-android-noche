@@ -81,7 +81,7 @@ public class UserModelo {
         return res;
     }
 
-    private int Delete(int id) {
+    public int Delete(int id) {
         SQLiteDatabase db = conexion.getWritableDatabase();
         int res = db.delete(TABLE, "id=?", new String[]{"" + id});
         db.close();
