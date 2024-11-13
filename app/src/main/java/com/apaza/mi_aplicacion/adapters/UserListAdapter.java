@@ -64,6 +64,12 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
         }
     }
 
+    public void setItemsChange(List<EUser> filtrado) {
+        items=filtrado;
+        notifyDataSetChanged();
+    }
+
+
     //clase holder
     public class UserListHolder extends RecyclerView.ViewHolder {
 

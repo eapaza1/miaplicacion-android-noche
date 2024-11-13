@@ -20,6 +20,7 @@ import com.apaza.mi_aplicacion.adapters.UserListAdapter;
 import com.apaza.mi_aplicacion.entidades.EUser;
 import com.apaza.mi_aplicacion.modelo.UserModelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListaUsuariosActivity extends AppCompatActivity {
@@ -27,6 +28,8 @@ public class ListaUsuariosActivity extends AppCompatActivity {
     Button btn_add;
     RecyclerView rv_users;
     EditText txt_buscar;
+
+    UserListAdapter adapter;
 
     private List<EUser> lista;
 
@@ -41,14 +44,14 @@ public class ListaUsuariosActivity extends AppCompatActivity {
             return insets;
         });
 
-        btn_add=findViewById(R.id.btn_lu_add);
-        rv_users=findViewById(R.id.rv_lista_usuarios);
-        txt_buscar=findViewById(R.id.txt_lu_buscar);
+        btn_add = findViewById(R.id.btn_lu_add);
+        rv_users = findViewById(R.id.rv_lista_usuarios);
+        txt_buscar = findViewById(R.id.txt_lu_buscar);
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ListaUsuariosActivity.this,AddUserActivity.class);
+                Intent intent = new Intent(ListaUsuariosActivity.this, AddUserActivity.class);
                 startActivity(intent);
             }
         });
@@ -75,20 +78,28 @@ public class ListaUsuariosActivity extends AppCompatActivity {
     }
 
     private void filtrar() {
+        List<EUser> filtrado = new ArrayList<>();
+        //texto a filtrar
+        String texto = txt_buscar.getText().toString();
+        for (EUser usuario : lista) {
+            //filtrar por nombre y apellido
+            if (usuario.getNombre().toLowerCase().contains(texto.toLowerCase()) ||
+                    usuario.getApellido().toLowerCase().contains(texto.toLowerCase())
+            ) {
+                filtrado.add(usuario);
+            }
+        }
+        adapter.setItemsChange(filtrado);
     }
 
     private void initData() {
-        UserModelo model= new UserModelo(this);
-         lista=model.ReadAll();
+        UserModelo model = new UserModelo(this);
+        lista = model.ReadAll();
         rv_users.setLayoutManager(new LinearLayoutManager(this));
-        UserListAdapter adapter=new UserListAdapter(lista,this);
+        adapter = new UserListAdapter(lista, this);
         rv_users.setAdapter(adapter);
 
     }
-
-    
-
-
 
 
 }
