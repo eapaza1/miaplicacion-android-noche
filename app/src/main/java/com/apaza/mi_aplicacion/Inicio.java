@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Inicio extends AppCompatActivity {
 
-    Button btn_usuarios;
+    Button btn_usuarios,btn_productos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +27,19 @@ public class Inicio extends AppCompatActivity {
         });
 
         btn_usuarios=findViewById(R.id.btn_admin_usuario);
+        btn_productos=findViewById(R.id.btn_admin_productos);
 
         btn_usuarios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent inti = new Intent(Inicio.this, ListaUsuariosActivity.class);
+                startActivity(inti);
+            }
+        });
+        btn_productos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent inti = new Intent(Inicio.this, StoreActivity.class);
                 startActivity(inti);
             }
         });
